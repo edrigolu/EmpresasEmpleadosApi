@@ -66,11 +66,11 @@ public partial class EmpresaEmpleadosDbContext : DbContext
 
             entity.Property(e => e.EstadoRegistro).HasDefaultValue(true);
 
-            entity.HasOne(d => d.IdEmpleadoNavigation).WithMany(p => p.EmpresaEmpleados)
+            entity.HasOne(d => d.IdEmpleadoNavigation).WithMany(p => p.DetalleEmpleados)
                 .HasForeignKey(d => d.IdEmpleado)
                 .HasConstraintName("FK_EmpleadoEmpresa_Empleado");
 
-            entity.HasOne(d => d.IdEmpresaNavigation).WithMany(p => p.EmpresaEmpleados)
+            entity.HasOne(d => d.IdEmpresaNavigation).WithMany(p => p.DetalleEmpresa)
                 .HasForeignKey(d => d.IdEmpresa)
                 .HasConstraintName("FK_EmpleadoEmpresa_Empresa");
         });

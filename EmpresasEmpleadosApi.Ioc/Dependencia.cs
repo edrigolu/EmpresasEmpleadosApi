@@ -1,6 +1,9 @@
-﻿using EmpresasEmpleadosApi.Data.DBContext;
+﻿using EmpresasEmpleadosApi.Bussiness.Services;
+using EmpresasEmpleadosApi.Bussiness.Services.Interfaces;
+using EmpresasEmpleadosApi.Data.DBContext;
 using EmpresasEmpleadosApi.Data.Repository;
 using EmpresasEmpleadosApi.Data.Repository.Interface;
+using EmpresasEmpleadosApi.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,16 +21,18 @@ namespace EmpresasEmpleadosApi.Ioc
 
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
-            //services.AddScoped<ISaleRepository, SaleRepository>();
-            //services.AddAutoMapper(typeof(AutoMapperProfile));
+            services.AddAutoMapper(typeof(AutoMapperProfile));
 
-            //services.AddScoped<ICategoryService, CategoryService>();
-            //services.AddScoped<IDashBoardService, DashBoardService>();
+            services.AddScoped<IEmpleadoService, EmpleadoService>();
+            services.AddScoped<IEmpresaService, EmpresaService>();
+            services.AddScoped<IEmpresaEmpleadoService, EmpresaEmpleadoService>();
+            services.AddScoped<IRolService, RolService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
             //services.AddScoped<IMenuService, MenuService>();
-            //services.AddScoped<IProductService, ProductService>();
-            //services.AddScoped<IRolService, RolService>();
-            //services.AddScoped<ISaleService, SaleService>();
-            //services.AddScoped<IUserService, UserService>();
+           
+
+         
+
         }
     }
 }

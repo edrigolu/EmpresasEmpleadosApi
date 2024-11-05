@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace EmpresasEmpleadosApi.Entities.Models;
+﻿namespace EmpresasEmpleadosApi.Entities.Models;
 
 public partial class Empleado
 {
@@ -15,5 +12,5 @@ public partial class Empleado
 
     public bool? Activo { get; set; }
 
-    public virtual ICollection<EmpresaEmpleado> EmpresaEmpleados { get; set; } = new List<EmpresaEmpleado>();
+    public virtual ICollection<EmpresaEmpleado> DetalleEmpleados { get; set; } = new List<EmpresaEmpleado>();
 }

@@ -1,37 +1,85 @@
-﻿using EmpresasEmpleadosApi.Data.Repository.Interface;
+﻿using EmpresasEmpleadosApi.Data.DBContext;
+using EmpresasEmpleadosApi.Data.Repository.Interface;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace EmpresasEmpleadosApi.Data.Repository
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        public GenericRepository()
+        private readonly EmpresaEmpleadosDbContext _dbContext;
+
+        public GenericRepository(EmpresaEmpleadosDbContext dbContext)
         {
+            _dbContext = dbContext;
         }
 
-        public Task<IQueryable<TEntity>> Consult(Expression<Func<TEntity, bool>> filter = null!)
+        public async Task<IQueryable<TEntity>> Consult(Expression<Func<TEntity, bool>> filter = null!)
         {
-            throw new NotImplementedException();
+            try
+            {
+                IQueryable<TEntity> queryEntity = filter == null ? _dbContext.Set<TEntity>() : _dbContext.Set<TEntity>().Where(filter);
+                return queryEntity;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
-        public Task<TEntity> Create(TEntity entity)
+        public async Task<TEntity> Create(TEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.Set<TEntity>().Add(entity);
+                await _dbContext.SaveChangesAsync();
+                return entity;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
-        public Task<bool> Delete(TEntity entity)
+        public async Task<bool> Delete(TEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.Set<TEntity>().Update(entity);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
-        public Task<bool> Edit(TEntity entity)
+        public async Task<TEntity> Obtain(Expression<Func<TEntity, bool>> filter)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TEntity? entity = await _dbContext.Set<TEntity>().FirstOrDefaultAsync(filter);
+                return entity!;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
-        public Task<TEntity> Obtain(Expression<Func<TEntity, bool>> filter)
+        public async Task<bool> Edit(TEntity entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.Set<TEntity>().Update(entity);
+                await _dbContext!.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

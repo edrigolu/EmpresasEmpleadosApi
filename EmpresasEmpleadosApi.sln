@@ -17,19 +17,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{04
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dto", "Dto", "{8AAEF77B-B230-47F4-943D-B2383CFD8303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpresasEmpleadosApi.Entities", "EmpresasEmpleadosApi.Entities\EmpresasEmpleadosApi.Entities.csproj", "{8D4A9BA3-7986-4E55-B88D-E0D2B25B186B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmpresasEmpleadosApi.Entities", "EmpresasEmpleadosApi.Entities\EmpresasEmpleadosApi.Entities.csproj", "{8D4A9BA3-7986-4E55-B88D-E0D2B25B186B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpresasEmpleadosApi.Utilities", "EmpresasEmpleadosApi.Utilities\EmpresasEmpleadosApi.Utilities.csproj", "{FB637281-90DB-482F-9C1F-BE1F777E4EB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmpresasEmpleadosApi.Utilities", "EmpresasEmpleadosApi.Utilities\EmpresasEmpleadosApi.Utilities.csproj", "{FB637281-90DB-482F-9C1F-BE1F777E4EB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpresasEmpleadosApi.Bussiness", "EmpresasEmpleadosApi.Bussiness\EmpresasEmpleadosApi.Bussiness.csproj", "{D155AE6A-9ED5-4217-915E-2DD9C7858713}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmpresasEmpleadosApi.Bussiness", "EmpresasEmpleadosApi.Bussiness\EmpresasEmpleadosApi.Bussiness.csproj", "{D155AE6A-9ED5-4217-915E-2DD9C7858713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpresasEmpleadosApi.Data", "EmpresasEmpleadosApi.Data\EmpresasEmpleadosApi.Data.csproj", "{7CC72B09-D0A7-44B5-A92F-424DB3D3A6F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmpresasEmpleadosApi.Data", "EmpresasEmpleadosApi.Data\EmpresasEmpleadosApi.Data.csproj", "{7CC72B09-D0A7-44B5-A92F-424DB3D3A6F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpresasEmpleadosApi.Dto", "EmpresasEmpleadosApi.Dto\EmpresasEmpleadosApi.Dto.csproj", "{AAFA5892-05C0-4A9A-BA9C-027B63F4A323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmpresasEmpleadosApi.Dto", "EmpresasEmpleadosApi.Dto\EmpresasEmpleadosApi.Dto.csproj", "{AAFA5892-05C0-4A9A-BA9C-027B63F4A323}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ioc", "Ioc", "{976C7368-0914-4AAE-9C45-B9CCDDCDBEB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpresasEmpleadosApi.Ioc", "EmpresasEmpleadosApi.Ioc\EmpresasEmpleadosApi.Ioc.csproj", "{931931DD-20C8-43EF-9F21-C7441F4D1794}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmpresasEmpleadosApi.Ioc", "EmpresasEmpleadosApi.Ioc\EmpresasEmpleadosApi.Ioc.csproj", "{931931DD-20C8-43EF-9F21-C7441F4D1794}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
