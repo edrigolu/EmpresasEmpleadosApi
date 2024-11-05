@@ -90,6 +90,7 @@ public partial class EmpresaEmpleadosDbContext : DbContext
 
             entity.ToTable("Usuario");
 
+            entity.Property(e => e.Activo).HasDefaultValue(true);
             entity.Property(e => e.Apellidos)
                 .HasMaxLength(50)
                 .IsUnicode(false);

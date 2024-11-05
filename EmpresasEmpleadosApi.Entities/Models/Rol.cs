@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace EmpresasEmpleadosApi.Entities.Models;
+﻿namespace EmpresasEmpleadosApi.Entities.Models;
 
 public partial class Rol
 {

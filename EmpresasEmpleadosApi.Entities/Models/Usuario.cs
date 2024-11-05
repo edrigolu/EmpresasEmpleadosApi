@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace EmpresasEmpleadosApi.Entities.Models;
+﻿namespace EmpresasEmpleadosApi.Entities.Models;
 
 public partial class Usuario
 {
@@ -13,7 +10,9 @@ public partial class Usuario
 
     public string? Correo { get; set; }
 
-    public string Clave { get; set; } = null!;
+    public string? Clave { get; set; }
+
+    public bool? Activo { get; set; }
 
     public int? IdRol { get; set; }
 

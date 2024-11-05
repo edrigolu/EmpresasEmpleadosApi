@@ -11,7 +11,9 @@ public partial class Empleado
 
     public string? Apellidos { get; set; }
 
-    public int NumDocumento { get; set; }
+    public int? NumDocumento { get; set; }
+
+    public bool? Activo { get; set; }
 
     public virtual ICollection<EmpleadoEmpresa> EmpleadoEmpresas { get; set; } = new List<EmpleadoEmpresa>();
 }
