@@ -1,4 +1,7 @@
-﻿namespace EmpresasEmpleadosApi.Entities.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace EmpresasEmpleadosApi.Entities.Models;
 
 public partial class Usuario
 {

@@ -9,7 +9,7 @@ namespace EmpresasEmpleadosApi.Data.Repository
         {
         }
 
-        public Task<IQueryable<TEntity>> Consult(Expression<Func<TEntity, bool>> filter = null)
+        public Task<IQueryable<TEntity>> Consult(Expression<Func<TEntity, bool>> filter = null!)
         {
             throw new NotImplementedException();
         }

@@ -16,9 +16,9 @@ public partial class EmpresaEmpleadosDbContext : DbContext
 
     public virtual DbSet<Empleado> Empleados { get; set; }
 
-    public virtual DbSet<EmpleadoEmpresa> EmpleadoEmpresas { get; set; }
-
     public virtual DbSet<Empresa> Empresas { get; set; }
+
+    public virtual DbSet<EmpresaEmpleado> EmpresaEmpleados { get; set; }
 
     public virtual DbSet<Rol> Rols { get; set; }
 
@@ -47,21 +47,6 @@ public partial class EmpresaEmpleadosDbContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<EmpleadoEmpresa>(entity =>
-        {
-            entity.HasKey(e => e.IdEmpresaEmpleado);
-
-            entity.ToTable("EmpleadoEmpresa");
-
-            entity.HasOne(d => d.IdEmpleadoNavigation).WithMany(p => p.EmpleadoEmpresas)
-                .HasForeignKey(d => d.IdEmpleado)
-                .HasConstraintName("FK_EmpleadoEmpresa_Empleado");
-
-            entity.HasOne(d => d.IdEmpresaNavigation).WithMany(p => p.EmpleadoEmpresas)
-                .HasForeignKey(d => d.IdEmpresa)
-                .HasConstraintName("FK_EmpleadoEmpresa_Empresa");
-        });
-
         modelBuilder.Entity<Empresa>(entity =>
         {
             entity.HasKey(e => e.IdEmpresa);
@@ -71,6 +56,23 @@ public partial class EmpresaEmpleadosDbContext : DbContext
             entity.Property(e => e.NombreEmpresa)
                 .HasMaxLength(100)
                 .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<EmpresaEmpleado>(entity =>
+        {
+            entity.HasKey(e => e.IdEmpresaEmpleado).HasName("PK_EmpleadoEmpresa");
+
+            entity.ToTable("EmpresaEmpleado");
+
+            entity.Property(e => e.EstadoRegistro).HasDefaultValue(true);
+
+            entity.HasOne(d => d.IdEmpleadoNavigation).WithMany(p => p.EmpresaEmpleados)
+                .HasForeignKey(d => d.IdEmpleado)
+                .HasConstraintName("FK_EmpleadoEmpresa_Empleado");
+
+            entity.HasOne(d => d.IdEmpresaNavigation).WithMany(p => p.EmpresaEmpleados)
+                .HasForeignKey(d => d.IdEmpresa)
+                .HasConstraintName("FK_EmpleadoEmpresa_Empresa");
         });
 
         modelBuilder.Entity<Rol>(entity =>

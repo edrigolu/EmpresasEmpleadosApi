@@ -15,5 +15,5 @@ public partial class Empleado
 
     public bool? Activo { get; set; }
 
-    public virtual ICollection<EmpleadoEmpresa> EmpleadoEmpresas { get; set; } = new List<EmpleadoEmpresa>();
+    public virtual ICollection<EmpresaEmpleado> EmpresaEmpleados { get; set; } = new List<EmpresaEmpleado>();
 }
