@@ -66,6 +66,7 @@ namespace EmpresasEmpleadosApi.Utilities
                 option => option.MapFrom(source => source.Activo == 1 ? true : false)
                 );
             #endregion
+
         }
     }
 }

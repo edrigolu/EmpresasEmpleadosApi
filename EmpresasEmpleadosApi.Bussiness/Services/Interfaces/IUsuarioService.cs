@@ -4,10 +4,10 @@ namespace EmpresasEmpleadosApi.Bussiness.Services.Interfaces
 {
     public interface IUsuarioService
     {
-        Task<List<UsuarioDTO>> ListarUsuarios();
-        Task<SessionDTO> ValidarCredenciales(string correo, string clave);
-        Task<UsuarioDTO> Crear(UsuarioDTO model);
-        Task<bool> Editar(UsuarioDTO model);
-        Task<bool> Borrar(int idUsuario);
+        Task<List<UsuarioDTO>> List();
+        Task<SessionDTO> ValidateCredentials(string correo, string clave);
+        Task<UsuarioDTO> Create(UsuarioDTO model);
+        Task<bool> Edit(UsuarioDTO model);
+        Task<bool> Delete(int idUsuario);
     }
 }

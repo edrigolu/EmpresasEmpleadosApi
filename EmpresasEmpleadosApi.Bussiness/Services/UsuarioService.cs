@@ -18,7 +18,7 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
             _mapper = mapper;
         }
 
-        public async Task<bool> Borrar(int idUsuario)
+        public async Task<bool> Delete(int idUsuario)
         {
             try
             {
@@ -40,7 +40,7 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
             }
         }
 
-        public async Task<UsuarioDTO> Crear(UsuarioDTO model)
+        public async Task<UsuarioDTO> Create(UsuarioDTO model)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
             }
         }
 
-        public async Task<bool> Editar(UsuarioDTO model)
+        public async Task<bool> Edit(UsuarioDTO model)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
             }
         }
 
-        public async Task<List<UsuarioDTO>> ListarUsuarios()
+        public async Task<List<UsuarioDTO>> List()
         {
             try
             {
@@ -102,7 +102,7 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
             }
         }
 
-        public async Task<SessionDTO> ValidarCredenciales(string correo, string clave)
+        public async Task<SessionDTO> ValidateCredentials(string correo, string clave)
         {
             try
             {

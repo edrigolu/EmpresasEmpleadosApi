@@ -4,9 +4,10 @@ namespace EmpresasEmpleadosApi.Bussiness.Services.Interfaces
 {
     public interface IEmpresaService
     {
-        Task<List<EmpresaDTO>> ListarEmpresas();
-        Task<EmpresaDTO> Crear(EmpresaDTO model);
-        Task<bool> Editar(EmpresaDTO model);
-        Task<bool> Borrar(int idEmpresa);
+        Task<List<EmpresaDTO>> List();
+        Task<EmpresaDTO> Create(EmpresaDTO model);
+        Task<bool> Edit(EmpresaDTO model);
+        Task<bool> Delete(int idEmpresa);
+        Task<EmpresaEmpleadoDTO> Register(EmpresaEmpleadoDTO model);
     }
 }

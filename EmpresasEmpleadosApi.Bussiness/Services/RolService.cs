@@ -17,7 +17,7 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
             _mapper = mapper;
         }
 
-        public async Task<List<RolDTO>> Listar()
+        public async Task<List<RolDTO>> List()
         {
             try
             {
