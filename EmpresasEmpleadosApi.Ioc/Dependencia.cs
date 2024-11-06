@@ -19,9 +19,10 @@ namespace EmpresasEmpleadosApi.Ioc
                 options.UseSqlServer(configuration.GetConnectionString("SqlString"));
             });
 
-            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));           
 
             services.AddAutoMapper(typeof(AutoMapperProfile));
+            services.AddSingleton<Utilidades>();
 
             services.AddScoped<IEmpleadoService, EmpleadoService>();
             services.AddScoped<IEmpresaService, EmpresaService>();

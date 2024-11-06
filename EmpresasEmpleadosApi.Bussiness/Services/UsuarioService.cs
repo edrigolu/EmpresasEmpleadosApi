@@ -73,7 +73,7 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
                 buscarUsuario.Apellidos = usuarioModel.Apellidos;
                 buscarUsuario.Correo = usuarioModel.Correo;
                 buscarUsuario.IdRol = usuarioModel.IdRol;
-                buscarUsuario.Clave = usuarioModel.Clave;
+                //buscarUsuario.Clave = usuarioModel.Clave;
                 buscarUsuario.Activo = usuarioModel.Activo;
                 bool answer = await _userRepository.Edit(buscarUsuario);
                 if (!answer)
@@ -102,7 +102,7 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
             }
         }
 
-        public async Task<SessionDTO> ValidateCredentials(string correo, string clave)
+        public async Task<LoginDTO> ValidateCredentials(string correo, string clave)
         {
             try
             {
@@ -112,12 +112,30 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
                     throw new TaskCanceledException("Usuario no existe.");
                 }
                 Usuario backUser = queryUser.Include(rol => rol.IdRolNavigation).First();
-                return _mapper.Map<SessionDTO>(backUser);
+                return _mapper.Map<LoginDTO>(backUser);
             }
             catch
             {
                 throw;
             }
         }
+
+        //public async Task<SessionDTO> ValidateCredentials(string correo, string clave)
+        //{
+        //    try
+        //    {
+        //        IQueryable<Usuario> queryUser = await _userRepository.Consult(u => u.Correo == correo && u.Clave == clave);
+        //        if (queryUser.FirstOrDefault() == null)
+        //        {
+        //            throw new TaskCanceledException("Usuario no existe.");
+        //        }
+        //        Usuario backUser = queryUser.Include(rol => rol.IdRolNavigation).First();
+        //        return _mapper.Map<SessionDTO>(backUser);
+        //    }
+        //    catch
+        //    {
+        //        throw;
+        //    }
+        //}
     }
 }

@@ -45,26 +45,24 @@ namespace EmpresasEmpleadosApi.Utilities
 
             #region Usuario
             CreateMap<Usuario, UsuarioDTO>()
-                .ForMember(destination =>
-                destination.RolDescripcion,
-                option => option.MapFrom(source => source.IdRolNavigation!.RolDescripcion)
-                )
-                .ForMember(destination => destination.Activo,
-                option => option.MapFrom(source => source.Activo == true ? 1 : 0)
-                );
+               .ForMember(destination => destination.IdRol,
+               option => option.Ignore())
+               .ForMember(destination => destination.Activo,
+               option => option.MapFrom(source => source.Activo == true ? true : false)
+               );
+
+            CreateMap<UsuarioDTO, Usuario>()
+               .ForMember(destination => destination.IdRolNavigation,
+               option => option.Ignore())
+               .ForMember(destination => destination.Activo,
+               option => option.MapFrom(source => source.Activo == 1 ? true : false)
+               );
 
             CreateMap<Usuario, SessionDTO>()
                 .ForMember(destination =>
               destination.RolDescripcion, option =>
                   option.MapFrom(source => source.IdRolNavigation!.RolDescripcion)
-              );
-
-            CreateMap<UsuarioDTO, Usuario>()
-                .ForMember(destination => destination.IdRolNavigation,
-                option => option.Ignore())
-                .ForMember(destination => destination.Activo,
-                option => option.MapFrom(source => source.Activo == 1 ? true : false)
-                );
+              );           
             #endregion
 
         }
