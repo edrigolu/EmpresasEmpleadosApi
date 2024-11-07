@@ -47,7 +47,7 @@ namespace EmpresasEmpleadosApi.Utilities
             //crear detalle del token
             var jwtConfig = new JwtSecurityToken(
                 claims: userClaims,
-                expires: DateTime.UtcNow.AddMinutes(10),
+                expires: DateTime.UtcNow.AddMinutes(30),
                 signingCredentials: credentials
                 );
             return new JwtSecurityTokenHandler().WriteToken(jwtConfig);

@@ -1,12 +1,14 @@
 ﻿using EmpresasEmpleadosApi.Data.DBContext;
 using EmpresasEmpleadosApi.Dto;
 using EmpresasEmpleadosApi.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Controllers
 {
     [Route("api/acceso")]
+    [AllowAnonymous]
     [ApiController]
     public class AccesoController : ControllerBase
     {
