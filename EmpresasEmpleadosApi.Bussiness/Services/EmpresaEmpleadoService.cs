@@ -34,7 +34,9 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
                 throw;
             }
             return _mapper.Map<List<EmpresaEmpleadoDTO>>(listarEmpleados);
-        }        
+        }
+
+        
 
         public async Task<List<EmpresaEmpleadoDTO>> ListarEmpresas()
         {
@@ -52,6 +54,23 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
                 throw;
             }
             return _mapper.Map<List<EmpresaEmpleadoDTO>>(listarEmpresas);
+        }
+
+        public async Task<EmpresaEmpleadoDTO> Register(EmpresaEmpleadoDTO model)
+        {
+            try
+            {
+                EmpresaEmpleado registrar = await _genericRepository.Create(_mapper.Map<EmpresaEmpleado>(model));
+                if (registrar.IdEmpresa == 0)
+                {
+                    throw new TaskCanceledException("Empresa y el empleado no se pudieron registrar.");
+                }
+                return _mapper.Map<EmpresaEmpleadoDTO>(registrar);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

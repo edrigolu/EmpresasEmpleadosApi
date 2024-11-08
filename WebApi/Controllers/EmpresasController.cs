@@ -90,22 +90,6 @@ namespace WebApi.Controllers
             return Ok(rsp);
         }
 
-        [HttpPost]
-        [Route("Register")]
-        public async Task<IActionResult> Register([FromBody] EmpresaEmpleadoDTO empresaEmpleadoDTO)
-        {
-            var rsp = new Response<EmpresaEmpleadoDTO>();
-            try
-            {
-                rsp.Status = true;
-                rsp.Value = await _empresaService.Register(empresaEmpleadoDTO);
-            }
-            catch (Exception ex)
-            {
-                rsp.Status = false;
-                rsp.Msg = ex.Message;
-            }
-            return Ok(rsp);
-        }
+        
     }
 }
