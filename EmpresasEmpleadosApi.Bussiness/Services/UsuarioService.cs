@@ -102,7 +102,7 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
             }
         }
 
-        public async Task<LoginDTO> ValidateCredentials(string correo, string clave)
+        public async Task<SessionDTO> ValidateCredentials(string correo, string clave)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace EmpresasEmpleadosApi.Bussiness.Services
                     throw new TaskCanceledException("Usuario no existe.");
                 }
                 Usuario backUser = queryUser.Include(rol => rol.IdRolNavigation).First();
-                return _mapper.Map<LoginDTO>(backUser);
+                return _mapper.Map<SessionDTO>(backUser);
             }
             catch
             {

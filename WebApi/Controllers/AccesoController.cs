@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Controllers
 {
-    [Route("api/acceso")]
+    [Route("api/[controller]")]
     //[AllowAnonymous]
     [ApiController]
     public class AccesoController : ControllerBase

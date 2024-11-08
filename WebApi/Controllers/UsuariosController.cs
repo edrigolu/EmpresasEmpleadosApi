@@ -6,7 +6,7 @@ using WebApi.Utility;
 
 namespace WebApi.Controllers
 {
-    [Route("api/usuarios")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
     {
@@ -92,6 +92,24 @@ namespace WebApi.Controllers
             {
                 rsp.Status = true;
                 rsp.Value = await _usuarioService.Delete(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                rsp.Status = false;
+                rsp.Msg = ex.Message;
+            }
+            return Ok(rsp);
+        }
+
+        [HttpPost]
+        [Route("Login")]
+        public async Task<IActionResult> Login([FromBody] LoginDTO login)
+        {
+            var rsp = new Response<SessionDTO>();
+            try
+            {
+                rsp.Status = true;
+                rsp.Value = await _usuarioService.ValidateCredentials(login.Correo!, login.Clave!);
             }
             catch (Exception ex)
             {

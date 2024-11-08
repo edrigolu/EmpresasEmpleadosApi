@@ -5,7 +5,7 @@ using WebApi.Utility;
 
 namespace WebApi.Controllers
 {
-    [Route("api/Menu")]
+    [Route("api/menu")]
     [ApiController]
     public class MenuController : ControllerBase
     {

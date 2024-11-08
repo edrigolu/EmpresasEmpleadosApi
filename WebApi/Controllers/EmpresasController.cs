@@ -5,7 +5,7 @@ using WebApi.Utility;
 
 namespace WebApi.Controllers
 {
-    [Route("api/empresas")]
+    [Route("api/[controller]")]
     [ApiController]
     public class EmpresasController : ControllerBase
     {

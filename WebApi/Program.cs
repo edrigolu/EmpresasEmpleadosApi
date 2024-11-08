@@ -14,6 +14,16 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.InjectDependencies(builder.Configuration);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("NuevaPolitica", app =>
+    {
+        app.AllowAnyOrigin()
+           .AllowAnyHeader()
+           .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddAuthentication(config =>
 {
     config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -34,15 +44,7 @@ builder.Services.AddAuthentication(config =>
     };
 });
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("NewPolicy", app =>
-    {
-        app.AllowAnyOrigin()
-        .AllowAnyHeader()
-        .AllowAnyMethod();
-    });
-});
+
 
 WebApplication app = builder.Build();
 
@@ -55,7 +57,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("NewPolicy");
+app.UseCors("NuevaPolitica");
 
 app.UseAuthorization();
 
