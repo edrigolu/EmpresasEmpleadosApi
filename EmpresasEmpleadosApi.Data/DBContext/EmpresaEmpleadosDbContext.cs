@@ -20,6 +20,10 @@ public partial class EmpresaEmpleadosDbContext : DbContext
 
     public virtual DbSet<EmpresaEmpleado> EmpresaEmpleados { get; set; }
 
+    public virtual DbSet<Menu> Menus { get; set; }
+
+    public virtual DbSet<MenuRol> MenuRoles { get; set; }
+
     public virtual DbSet<Rol> Rols { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
@@ -73,6 +77,34 @@ public partial class EmpresaEmpleadosDbContext : DbContext
             entity.HasOne(d => d.IdEmpresaNavigation).WithMany(p => p.DetalleEmpresa)
                 .HasForeignKey(d => d.IdEmpresa)
                 .HasConstraintName("FK_EmpleadoEmpresa_Empresa");
+        });
+
+        modelBuilder.Entity<Menu>(entity =>
+        {
+            entity.HasKey(e => e.IdMenu);
+
+            entity.ToTable("Menu");
+
+            entity.Property(e => e.Icono)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Url)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<MenuRol>(entity =>
+        {
+            entity.HasKey(e => e.IdMenuRol);
+
+            entity.ToTable("MenuRol");
+
+            entity.HasOne(d => d.IdMenuNavigation).WithMany(p => p.MenuRols)
+                .HasForeignKey(d => d.IdMenu)
+                .HasConstraintName("FK_MenuRol_Menu");
         });
 
         modelBuilder.Entity<Rol>(entity =>

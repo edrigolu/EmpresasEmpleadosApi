@@ -29,10 +29,10 @@ namespace EmpresasEmpleadosApi.Ioc
             services.AddScoped<IEmpresaEmpleadoService, EmpresaEmpleadoService>();
             services.AddScoped<IRolService, RolService>();
             services.AddScoped<IUsuarioService, UsuarioService>();
-            //services.AddScoped<IMenuService, MenuService>();
-           
+            services.AddScoped<IMenuService, MenuService>();
 
-         
+
+
 
         }
     }

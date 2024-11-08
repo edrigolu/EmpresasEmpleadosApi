@@ -39,6 +39,10 @@ namespace EmpresasEmpleadosApi.Utilities
                 );
             #endregion
 
+            #region Menu
+            CreateMap<Menu, MenuDTO>().ReverseMap();
+            #endregion
+
             #region Rol
             CreateMap<Rol, RolDTO>().ReverseMap();
             #endregion Rol

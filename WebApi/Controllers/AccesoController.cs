@@ -1,14 +1,13 @@
 ﻿using EmpresasEmpleadosApi.Data.DBContext;
 using EmpresasEmpleadosApi.Dto;
 using EmpresasEmpleadosApi.Utilities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Controllers
 {
     [Route("api/acceso")]
-    [AllowAnonymous]
+    //[AllowAnonymous]
     [ApiController]
     public class AccesoController : ControllerBase
     {
@@ -38,6 +37,12 @@ namespace WebApi.Controllers
         }
 
 
-
+        [HttpGet]
+        [Route("ValidarToken")]
+        public IActionResult ValidarToken([FromQuery] string token)
+        {
+            bool respuesta = _utilidades.ValidarToken(token);
+            return StatusCode(StatusCodes.Status200OK, new { isSuccess = respuesta });
+        }
     }
 }
