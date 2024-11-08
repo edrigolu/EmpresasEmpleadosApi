@@ -4,6 +4,6 @@
     {
         public int IdEmpresa { get; set; }
         public string? NombreEmpresa { get; set; }
-        public int? Activa { get; set; }
+        public int Activa { get; set; }
     }
 }
